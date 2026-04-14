@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">移动端智能体 Demo</string>
+    <!--
+      无障碍服务描述文字
+      这段文字会显示在"设置 → 无障碍"页面中，告诉用户这个服务是做什么的。
+      建议写清楚用途，以便用户决定是否授权。
+    -->
+    <string name="a11y_service_description">允许 MobileAgentDemo 读取屏幕内容并模拟点击操作，用于 AI 自动完成手机任务。</string>
+</resources>

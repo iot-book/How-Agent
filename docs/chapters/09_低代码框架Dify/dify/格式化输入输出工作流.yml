@@ -1,0 +1,935 @@
+app:
+  description: 以JSON格式、动态确认输入和输出的工作流。
+  icon: 🤖
+  icon_background: '#FFEAD5'
+  icon_type: emoji
+  mode: workflow
+  name: 格式化输入输出工作流
+  use_icon_as_answer_icon: false
+dependencies:
+- current_identifier: null
+  type: marketplace
+  value:
+    marketplace_plugin_unique_identifier: langgenius/zhipuai:0.0.23@7e6213a06c26b17b5dfc2416db36f664d4fb08252bd1644ca54a82a6cc7a8609
+    version: null
+kind: app
+version: 0.6.0
+workflow:
+  conversation_variables: []
+  environment_variables: []
+  features:
+    file_upload:
+      allowed_file_extensions:
+      - .JPG
+      - .JPEG
+      - .PNG
+      - .GIF
+      - .WEBP
+      - .SVG
+      allowed_file_types:
+      - image
+      allowed_file_upload_methods:
+      - local_file
+      - remote_url
+      enabled: false
+      fileUploadConfig:
+        attachment_image_file_size_limit: 2
+        audio_file_size_limit: 50
+        batch_count_limit: 5
+        file_size_limit: 15
+        file_upload_limit: 20
+        image_file_batch_limit: 10
+        image_file_size_limit: 10
+        single_chunk_attachment_limit: 10
+        video_file_size_limit: 100
+        workflow_file_upload_limit: 10
+      image:
+        enabled: false
+        number_limits: 3
+        transfer_methods:
+        - local_file
+        - remote_url
+      number_limits: 3
+    opening_statement: ''
+    retriever_resource:
+      enabled: true
+    sensitive_word_avoidance:
+      enabled: false
+    speech_to_text:
+      enabled: false
+    suggested_questions: []
+    suggested_questions_after_answer:
+      enabled: false
+    text_to_speech:
+      enabled: false
+      language: ''
+      voice: ''
+  graph:
+    edges:
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: start
+        targetType: code
+      id: 1775813287890-source-1775813656019-target
+      source: '1775813287890'
+      sourceHandle: source
+      target: '1775813656019'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: code
+        targetType: if-else
+      id: 1775813656019-source-1775813973576-target
+      source: '1775813656019'
+      sourceHandle: source
+      target: '1775813973576'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: if-else
+        targetType: code
+      id: 1775813973576-true-1775814009115-target
+      source: '1775813973576'
+      sourceHandle: 'true'
+      target: '1775814009115'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: code
+        targetType: tool
+      id: 1775814009115-source-1775814208540-target
+      source: '1775814009115'
+      sourceHandle: source
+      target: '1775814208540'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: tool
+        targetType: code
+      id: 1775814208540-source-1775814238519-target
+      source: '1775814208540'
+      sourceHandle: source
+      target: '1775814238519'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: code
+        targetType: llm
+      id: 1775814238519-source-1775814574251-target
+      source: '1775814238519'
+      sourceHandle: source
+      target: '1775814574251'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: llm
+        targetType: code
+      id: 1775814574251-source-1775814825978-target
+      source: '1775814574251'
+      sourceHandle: source
+      target: '1775814825978'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: code
+        targetType: variable-aggregator
+      id: 1775814825978-source-1775814950035-target
+      source: '1775814825978'
+      sourceHandle: source
+      target: '1775814950035'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: if-else
+        targetType: variable-aggregator
+      id: 1775813973576-false-1775814950035-target
+      source: '1775813973576'
+      sourceHandle: 'false'
+      target: '1775814950035'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: variable-aggregator
+        targetType: variable-aggregator
+      id: 1775814950035-source-1775815011074-target
+      source: '1775814950035'
+      sourceHandle: source
+      target: '1775815011074'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: variable-aggregator
+        targetType: variable-aggregator
+      id: 1775815011074-source-1775815032746-target
+      source: '1775815011074'
+      sourceHandle: source
+      target: '1775815032746'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: variable-aggregator
+        targetType: end
+      id: 1775815032746-source-1775815077288-target
+      source: '1775815032746'
+      sourceHandle: source
+      target: '1775815077288'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    nodes:
+    - data:
+        selected: true
+        title: 用户输入
+        type: start
+        variables:
+        - default: ''
+          hint: ''
+          label: 待完成的任务
+          options: []
+          placeholder: ''
+          required: true
+          type: text-input
+          variable: task
+        - hint: ''
+          label: 搜索的知识库
+          options:
+          - AI
+          - Agent
+          placeholder: ''
+          required: false
+          type: select
+          variable: KB
+        - default: ''
+          hint: ''
+          label: 输入格式
+          options: []
+          placeholder: ''
+          required: true
+          type: text-input
+          variable: input_schema
+        - default: ''
+          hint: ''
+          label: 输入内容
+          options: []
+          placeholder: ''
+          required: true
+          type: text-input
+          variable: input_content
+        - default: ''
+          hint: ''
+          label: 输出格式
+          options: []
+          placeholder: ''
+          required: true
+          type: text-input
+          variable: output_schema
+        - default: ''
+          hint: ''
+          label: 额外的系统提示
+          options: []
+          placeholder: ''
+          required: false
+          type: text-input
+          variable: extra_system_prompt
+        - default: ''
+          hint: ''
+          label: 额外的搜索键
+          options: []
+          placeholder: ''
+          required: false
+          type: text-input
+          variable: extra_query_key
+        - default: ''
+          hint: ''
+          label: 是否使用多扩展查询（MQE）
+          options: []
+          placeholder: ''
+          required: false
+          type: checkbox
+          variable: use_mqe
+        - default: ''
+          hint: ''
+          label: 是否使用假设文档嵌入
+          options: []
+          placeholder: ''
+          required: false
+          type: checkbox
+          variable: use_hyde
+      height: 317
+      id: '1775813287890'
+      position:
+        x: 80
+        y: 282
+      positionAbsolute:
+        x: 80
+        y: 282
+      selected: true
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+    - data:
+        code: "\ndef main(input_schema: str, input_content: str, output_schema: str):\n\
+          \    try:\n        parsed_input_schema = json.loads(input_schema)\n    \
+          \    parsed_input_content = json.loads(input_content)\n        \n      \
+          \  # 仅作检测\n        parsed_output_schema = json.loads(output_schema)\n\n\
+          \        # 输入拼接\n        processed_input = \"\"\n        for key, value\
+          \ in parsed_input_schema.items():\n            processed_input = processed_input\
+          \ + f\"{value}: {parsed_input_content[key]}\\n\"\n        \n        return\
+          \ {\n            \"success\": True,\n            \"msg\": \"\",\n      \
+          \      \"processed_input\": processed_input\n        }\n\n    except json.JSONDecodeError:\n\
+          \        return {\n            \"success\": False,\n            \"msg\"\
+          : \"请检查输入是否符合JSON格式\",\n            \"processed_input\": \"\"\n        }\n\
+          \    except KeyError:\n        return {\n            \"success\": False,\n\
+          \            \"msg\": \"请检查输入模式与输入内容是否匹配\",\n            \"processed_input\"\
+          : \"\"\n        }"
+        code_language: python3
+        outputs:
+          msg:
+            children: null
+            type: string
+          processed_input:
+            children: null
+            type: string
+          success:
+            children: null
+            type: boolean
+        selected: false
+        title: 输入格式检测与参数拼接
+        type: code
+        variables:
+        - value_selector:
+          - '1775813287890'
+          - input_schema
+          value_type: string
+          variable: input_schema
+        - value_selector:
+          - '1775813287890'
+          - input_content
+          value_type: string
+          variable: input_content
+        - value_selector:
+          - '1775813287890'
+          - output_schema
+          value_type: string
+          variable: output_schema
+      height: 52
+      id: '1775813656019'
+      position:
+        x: 382
+        y: 282
+      positionAbsolute:
+        x: 382
+        y: 282
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+    - data:
+        cases:
+        - case_id: 'true'
+          conditions:
+          - comparison_operator: is
+            id: ca1d0a2b-cc32-492d-a739-56e550b573c0
+            value: true
+            varType: boolean
+            variable_selector:
+            - '1775813656019'
+            - success
+          id: 'true'
+          logical_operator: and
+        selected: false
+        title: 条件分支
+        type: if-else
+      height: 124
+      id: '1775813973576'
+      position:
+        x: 684
+        y: 282
+      positionAbsolute:
+        x: 684
+        y: 282
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+    - data:
+        code: "\ndef main(task: str, processed_input: str, extra_query_key: str):\n\
+          \    result = task + \"\\n\\n\" + processed_input\n    if extra_query_key:\n\
+          \        result = result + \"\\n\\n\" + extra_query_key\n    \n    return\
+          \ {\n        \"result\": result\n    }\n"
+        code_language: python3
+        outputs:
+          result:
+            children: null
+            type: string
+        selected: false
+        title: 查询内容拼接
+        type: code
+        variables:
+        - value_selector:
+          - '1775813287890'
+          - task
+          value_type: string
+          variable: task
+        - value_selector:
+          - '1775813656019'
+          - processed_input
+          value_type: string
+          variable: processed_input
+        - value_selector:
+          - '1775813287890'
+          - extra_query_key
+          value_type: string
+          variable: extra_query_key
+      height: 52
+      id: '1775814009115'
+      position:
+        x: 1004.2815618292186
+        y: 260.2362359175969
+      positionAbsolute:
+        x: 1004.2815618292186
+        y: 260.2362359175969
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+    - data:
+        is_team_authorization: true
+        paramSchemas:
+        - auto_generate: null
+          default: ''
+          form: llm
+          human_description:
+            en_US: 查询内容
+            ja_JP: 查询内容
+            pt_BR: 查询内容
+            zh_Hans: 查询内容
+          label:
+            en_US: 查询内容
+            ja_JP: 查询内容
+            pt_BR: 查询内容
+            zh_Hans: 查询内容
+          llm_description: 查询内容
+          max: null
+          min: null
+          name: query
+          options: []
+          placeholder:
+            en_US: ''
+            ja_JP: ''
+            pt_BR: ''
+            zh_Hans: ''
+          precision: null
+          required: true
+          scope: null
+          template: null
+          type: string
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: 指定的知识库
+            ja_JP: 指定的知识库
+            pt_BR: 指定的知识库
+            zh_Hans: 指定的知识库
+          label:
+            en_US: 指定的知识库
+            ja_JP: 指定的知识库
+            pt_BR: 指定的知识库
+            zh_Hans: 指定的知识库
+          llm_description: 指定的知识库
+          max: null
+          min: null
+          name: KB
+          options: []
+          placeholder:
+            en_US: ''
+            ja_JP: ''
+            pt_BR: ''
+            zh_Hans: ''
+          precision: null
+          required: false
+          scope: null
+          template: null
+          type: string
+        - auto_generate: null
+          default: '8'
+          form: llm
+          human_description:
+            en_US: 输出文档数量
+            ja_JP: 输出文档数量
+            pt_BR: 输出文档数量
+            zh_Hans: 输出文档数量
+          label:
+            en_US: 输出文档数量
+            ja_JP: 输出文档数量
+            pt_BR: 输出文档数量
+            zh_Hans: 输出文档数量
+          llm_description: 输出文档数量
+          max: null
+          min: null
+          name: top_k
+          options: []
+          placeholder:
+            en_US: ''
+            ja_JP: ''
+            pt_BR: ''
+            zh_Hans: ''
+          precision: null
+          required: false
+          scope: null
+          template: null
+          type: number
+        - auto_generate: null
+          default: ''
+          form: llm
+          human_description:
+            en_US: 是否使用MQE策略
+            ja_JP: 是否使用MQE策略
+            pt_BR: 是否使用MQE策略
+            zh_Hans: 是否使用MQE策略
+          label:
+            en_US: 使用多扩展查询（MQE）
+            ja_JP: 使用多扩展查询（MQE）
+            pt_BR: 使用多扩展查询（MQE）
+            zh_Hans: 使用多扩展查询（MQE）
+          llm_description: 是否使用MQE策略
+          max: null
+          min: null
+          name: use_mqe
+          options: []
+          placeholder:
+            en_US: ''
+            ja_JP: ''
+            pt_BR: ''
+            zh_Hans: ''
+          precision: null
+          required: false
+          scope: null
+          template: null
+          type: boolean
+        - auto_generate: null
+          default: ''
+          form: llm
+          human_description:
+            en_US: 是否使用HyDE策略
+            ja_JP: 是否使用HyDE策略
+            pt_BR: 是否使用HyDE策略
+            zh_Hans: 是否使用HyDE策略
+          label:
+            en_US: 使用假设文档嵌入（HyDE）
+            ja_JP: 使用假设文档嵌入（HyDE）
+            pt_BR: 使用假设文档嵌入（HyDE）
+            zh_Hans: 使用假设文档嵌入（HyDE）
+          llm_description: 是否使用HyDE策略
+          max: null
+          min: null
+          name: use_hyde
+          options: []
+          placeholder:
+            en_US: ''
+            ja_JP: ''
+            pt_BR: ''
+            zh_Hans: ''
+          precision: null
+          required: false
+          scope: null
+          template: null
+          type: boolean
+        params:
+          KB: ''
+          query: ''
+          top_k: ''
+          use_hyde: ''
+          use_mqe: ''
+        plugin_id: null
+        plugin_unique_identifier: null
+        provider_icon:
+          background: '#FFEAD5'
+          content: 🤖
+        provider_id: df0d66e3-84b0-4c83-bf90-c1d3d263b5c8
+        provider_name: 高级知识检索
+        provider_type: workflow
+        selected: false
+        title: 高级知识检索
+        tool_configurations: {}
+        tool_description: 可以采用多查询扩展（MQE）和假设文档嵌入（HyDE）的扩展知识库检索框架。
+        tool_label: 高级知识检索
+        tool_name: advanced_knowledge_base_retrieval
+        tool_node_version: '2'
+        tool_parameters:
+          KB:
+            type: mixed
+            value: '{{#1775813287890.KB#}}'
+          query:
+            type: mixed
+            value: '{{#1775814009115.result#}}'
+          top_k:
+            type: constant
+            value: 8
+          use_hyde:
+            type: variable
+            value:
+            - '1775813287890'
+            - use_hyde
+          use_mqe:
+            type: variable
+            value:
+            - '1775813287890'
+            - use_mqe
+        type: tool
+      height: 52
+      id: '1775814208540'
+      position:
+        x: 1306.2815618292186
+        y: 260.2362359175969
+      positionAbsolute:
+        x: 1306.2815618292186
+        y: 260.2362359175969
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+    - data:
+        code: "def main(output: list[dict]):\n    # 1. 提取文档列表的辅助函数\n    def extract_docs(output_list):\n\
+          \        if not output_list or not isinstance(output_list, list):\n    \
+          \        return []\n        # 根据你的 JSON 结构，数据在列表第一个元素的 \"documents\" 键下\n\
+          \        if len(output_list) > 0 and \"documents\" in output_list[0]:\n\
+          \            return output_list[0][\"documents\"]\n        return []\n \
+          \   \n    # 2. 格式化单个文档的辅助函数\n    def format_document(doc):\n        if not\
+          \ doc:\n            return \"\"\n        # 优先从 metadata 获取文件名，如果没有则找 title\n\
+          \        doc_name = doc.get(\"metadata\", {}).get(\"document_name\") or\
+          \ doc.get(\"title\", \"未知文档\")\n        content = doc.get(\"content\", \"\
+          \").strip()\n        \n        return f\"### 文档名：{doc_name}\\n**内容提取：**\\\
+          n{content}\\n\"\n\n    # 3. 执行提取逻辑\n    documents = extract_docs(output)\n\
+          \n    # 4. 循环处理并拼接字符串\n    document_segments = []\n    for doc in documents:\n\
+          \        formatted_doc = format_document(doc)\n        if formatted_doc:\n\
+          \            document_segments.append(formatted_doc)\n    \n    # 使用 \\\
+          n---\\n 分隔符让不同文档块在视觉上更清晰\n    final_result_str = \"\\n---\\n\".join(document_segments)\n\
+          \n    # 5. 返回结果字典\n    return {\n        \"result\": final_result_str,\n\
+          \        \"count\": len(document_segments)  # 顺便统计处理了多少个片段\n    }"
+        code_language: python3
+        outputs:
+          count:
+            children: null
+            type: number
+          result:
+            children: null
+            type: string
+        selected: false
+        title: 文档格式化
+        type: code
+        variables:
+        - value_selector:
+          - '1775814208540'
+          - json
+          value_type: array[object]
+          variable: output
+      height: 52
+      id: '1775814238519'
+      position:
+        x: 1608.2815618292186
+        y: 260.2362359175969
+      positionAbsolute:
+        x: 1608.2815618292186
+        y: 260.2362359175969
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+    - data:
+        context:
+          enabled: true
+          variable_selector:
+          - '1775814238519'
+          - result
+        model:
+          completion_params:
+            temperature: 0.7
+          mode: chat
+          name: glm-4.7
+          provider: langgenius/zhipuai/zhipuai
+        prompt_template:
+        - id: 548b5f61-b6f2-4116-93a1-758df38e223a
+          role: system
+          text: '# Role: 知识渊博的专家
+
+            ## Profile:
+
+            - 你是资深专家，拥有深厚的知识储备。
+
+            - 你的任务是：{{#1775813287890.task#}}。
+
+            - 你的原则：严谨、客观，严格基于提供的证据进行推理。
+
+
+            ## Constraints:
+
+            1. **唯一来源原则**：所有答案必须严格基于【参考内容】。如果内容中不存在相关信息，请勿编造。
+
+            2. **逻辑一致性**：输出内容必须逻辑严密，符合特定的专业技术标准。
+
+            3. **输出格式**：必须且仅能输出标准的 JSON 格式，严禁包含任何 JSON 块之外的解释、前言或总结性文字。
+
+            4. **完整性**：在满足 JSON 结构的前提下，信息提取要详尽，涵盖所有相关技术细节，但注意不需要输出文档参考来源。
+
+
+            ## Workflow:
+
+            1. **解析**：深入分析【参考内容】中与“{{#1775813287890.task#}}”相关的核心条款或数据。
+
+            2. **匹配**：比对【用户提供的信息】与参考内容的一致性。
+
+            3. **构建**：根据【输出格式要求】构造 JSON 响应。
+
+            4. **校验**：最后检查输出是否符合 JSON 语法且不包含多余文本。
+
+
+            ## Extras:
+
+            {{#1775813287890.extra_system_prompt#}}'
+        - id: 6a5c445e-cf9b-4e33-ba73-fb92c7e2a48d
+          role: user
+          text: '### 待处理任务
+
+            {{#1775813287890.task#}}
+
+
+            ### 参考内容 (Source Documents)
+
+            ---
+
+            {{#context#}}
+
+            ---
+
+
+            ### 用户输入数据
+
+            {{#1775813656019.processed_input#}}
+
+
+            ### 必须遵循的输出 JSON Schema
+
+            请直接填充以下结构并返回，确保符合标准 JSON 格式：
+
+            ```json
+
+            {{#1775813287890.output_schema#}}'
+        selected: false
+        title: LLM
+        type: llm
+        vision:
+          enabled: false
+      height: 88
+      id: '1775814574251'
+      position:
+        x: 1910.2815618292186
+        y: 260.2362359175969
+      positionAbsolute:
+        x: 1910.2815618292186
+        y: 260.2362359175969
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+    - data:
+        code: "import re\nimport json\n\ndef main(text: str, output_schema: str):\n\
+          \    \n    pattern = r\"```json\\s*(.*?)\\s*```\"\n    match = re.search(pattern,\
+          \ text, re.DOTALL)\n\n    if match:\n        json_content = match.group(1)\n\
+          \    else:\n        json_content = \"\"\n\n    try:\n        # 尝试解析 JSON\
+          \ 字符串\n        parsed_output_content = json.loads(json_content)\n\n    \
+          \    # 确认是否符合输出Schema结果\n        parsed_output_schema = json.loads(output_schema)\n\
+          \        for key, value in parsed_output_schema.items():\n            if\
+          \ key not in parsed_output_content:\n                return {\n        \
+          \            \"success\": False,\n                    \"msg\": \"大模型的输出不符合预期结果\"\
+          ,\n                    \"output\": json.dumps(parsed_output_content, ensure_ascii=False)\n\
+          \                }\n        \n        # 如果解析成功\n        return {\n     \
+          \       \"success\": True,\n            \"msg\": \"\",\n            \"output\"\
+          : json.dumps(parsed_output_content, ensure_ascii=False)\n        }\n   \
+          \     \n        \n    except json.JSONDecodeError:\n        # 如果解析失败\n \
+          \       return {\n            \"success\": False,\n            \"msg\":\
+          \ \"大模型输出了无法解析的结果\",\n            \"output\": \"\"\n        }\n    "
+        code_language: python3
+        outputs:
+          msg:
+            children: null
+            type: string
+          output:
+            children: null
+            type: string
+          success:
+            children: null
+            type: boolean
+        selected: false
+        title: 输出格式化
+        type: code
+        variables:
+        - value_selector:
+          - '1775814574251'
+          - text
+          value_type: string
+          variable: text
+        - value_selector:
+          - '1775813287890'
+          - output_schema
+          value_type: string
+          variable: output_schema
+      height: 52
+      id: '1775814825978'
+      position:
+        x: 2212.281561829219
+        y: 260.2362359175969
+      positionAbsolute:
+        x: 2212.281561829219
+        y: 260.2362359175969
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+    - data:
+        output_type: boolean
+        selected: false
+        title: 变量聚合器_SUCCESS
+        type: variable-aggregator
+        variables:
+        - - '1775813656019'
+          - success
+        - - '1775814825978'
+          - success
+      height: 134
+      id: '1775814950035'
+      position:
+        x: 2514.281561829219
+        y: 260.2362359175969
+      positionAbsolute:
+        x: 2514.281561829219
+        y: 260.2362359175969
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+    - data:
+        output_type: string
+        selected: false
+        title: 变量聚合器_MSG
+        type: variable-aggregator
+        variables:
+        - - '1775813656019'
+          - msg
+        - - '1775814825978'
+          - msg
+      height: 134
+      id: '1775815011074'
+      position:
+        x: 2816.281561829219
+        y: 260.2362359175969
+      positionAbsolute:
+        x: 2816.281561829219
+        y: 260.2362359175969
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+    - data:
+        output_type: string
+        selected: false
+        title: 变量聚合器_OUTPUT
+        type: variable-aggregator
+        variables:
+        - - '1775814825978'
+          - output
+      height: 108
+      id: '1775815032746'
+      position:
+        x: 3118.281561829219
+        y: 260.2362359175969
+      positionAbsolute:
+        x: 3118.281561829219
+        y: 260.2362359175969
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+    - data:
+        outputs:
+        - value_selector:
+          - '1775814950035'
+          - output
+          value_type: boolean
+          variable: success
+        - value_selector:
+          - '1775815011074'
+          - output
+          value_type: string
+          variable: msg
+        - value_selector:
+          - '1775815032746'
+          - output
+          value_type: string
+          variable: output
+        selected: false
+        title: 输出
+        type: end
+      height: 140
+      id: '1775815077288'
+      position:
+        x: 3420.281561829219
+        y: 260.2362359175969
+      positionAbsolute:
+        x: 3420.281561829219
+        y: 260.2362359175969
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+    viewport:
+      x: 215.2018105319048
+      y: -128.89173759286382
+      zoom: 0.9999999999999999
+  rag_pipeline_variables: []

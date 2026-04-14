@@ -1,0 +1,15 @@
+# Core teaching dependencies
+PyYAML
+python-dotenv
+
+# Prompt homework dependencies
+ollama
+
+# Online/OpenAI-compatible model examples
+openai
+
+# MCP examples
+mcp
+
+# Testing
+pytest>=8.0,<10.0

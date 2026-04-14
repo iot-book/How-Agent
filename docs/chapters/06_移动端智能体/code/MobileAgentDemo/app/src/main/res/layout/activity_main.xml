@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  activity_main.xml  —  主界面布局
+  
+  布局说明（从上到下）：
+  1. 标题文字
+  2. 无障碍服务状态提示（开启后自动隐藏）
+  3. 任务输入框
+  4. 执行按钮 + 加载动画
+  5. 状态/结果显示区域
+  
+  这里使用最简单的 LinearLayout（线性布局），按垂直方向排列所有控件。
+-->
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="24dp">
+
+        <!-- 标题 -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="移动端智能体 Demo"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:layout_marginBottom="8dp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="输入任务，让 AI 自动帮你操作手机"
+            android:textSize="14sp"
+            android:textColor="#666666"
+            android:layout_marginBottom="24dp" />
+
+        <!-- 任务输入框 -->
+        <EditText
+            android:id="@+id/et_task"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="例如：帮我搜索附近评分最高的咖啡店"
+            android:inputType="textMultiLine"
+            android:minLines="2"
+            android:maxLines="4"
+            android:background="@android:drawable/edit_text"
+            android:padding="12dp"
+            android:layout_marginBottom="16dp" />
+
+        <!-- 开始执行按钮 -->
+        <Button
+            android:id="@+id/btn_start"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="开始执行任务"
+            android:layout_marginBottom="8dp" />
+
+        <!-- 加载动画（执行任务时显示，平时隐藏） -->
+        <ProgressBar
+            android:id="@+id/progress_bar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:visibility="gone"
+            android:layout_marginBottom="8dp" />
+
+        <!-- 前往无障碍设置的按钮（服务未开启时显示） -->
+        <Button
+            android:id="@+id/btn_a11y_settings"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="开启无障碍服务（必须）"
+            android:backgroundTint="#FF5722"
+            android:visibility="gone"
+            android:layout_marginBottom="16dp" />
+
+        <!-- 分割线 -->
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#E0E0E0"
+            android:layout_marginBottom="16dp" />
+
+        <!-- 状态/结果显示区域 -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="状态："
+            android:textStyle="bold"
+            android:layout_marginBottom="8dp" />
+
+        <TextView
+            android:id="@+id/tv_status"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="等待开始..."
+            android:textSize="14sp"
+            android:lineSpacingMultiplier="1.4"
+            android:background="#F5F5F5"
+            android:padding="12dp" />
+
+    </LinearLayout>
+</ScrollView>

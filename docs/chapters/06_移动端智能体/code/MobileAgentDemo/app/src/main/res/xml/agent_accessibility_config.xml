@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  agent_accessibility_config.xml  —  无障碍服务配置文件
+  
+  这个文件告诉 Android 系统：我们的无障碍服务需要哪些能力。
+  必须在 AndroidManifest.xml 的 <service> 标签中通过 meta-data 引用此文件。
+  
+  各属性说明：
+  - accessibilityEventTypes：监听哪些类型的界面事件
+      typeWindowStateChanged  = 切换了 App 或页面
+      typeWindowContentChanged = 页面内容发生了变化（列表刷新、弹框出现等）
+  
+  - accessibilityFeedbackType：服务提供何种反馈给用户
+      feedbackGeneric = 通用反馈（不发出声音或震动，静默工作）
+  
+  - accessibilityFlags：额外配置标志
+      flagReportViewIds             = 让节点携带 View ID（方便精准查找元素）
+      flagRetrieveInteractiveWindows = 能访问所有可交互的窗口（包括系统弹窗）
+      flagIncludeNotImportantViews   = 包含系统认为"不重要"的布局节点
+  
+  - canRetrieveWindowContent：必须为 true，否则无法读取屏幕内容
+  
+  - canPerformGestures：必须为 true，否则无法模拟点击和滑动
+  
+  - notificationTimeout：两次事件之间的最小间隔（毫秒），避免事件风暴
+-->
+<accessibility-service
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:accessibilityEventTypes="typeWindowStateChanged|typeWindowContentChanged"
+    android:accessibilityFeedbackType="feedbackGeneric"
+    android:accessibilityFlags="flagReportViewIds|flagRetrieveInteractiveWindows|flagIncludeNotImportantViews"
+    android:canRetrieveWindowContent="true"
+    android:canPerformGestures="true"
+    android:notificationTimeout="100"
+    android:description="@string/a11y_service_description" />
