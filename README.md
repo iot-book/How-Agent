@@ -51,6 +51,18 @@
 
 本教程中的很多章节都配有可运行示例与作业模板。阅读时可以结合 `minimal_agents/` 中的目录一起查看：
 
+## 核心贡献者：
+
+王继良: https://tns.thss.tsinghua.edu.cn/~jiliang/ 清华大学 jiliangwang@tsinghua.edu.cn
+
+李航 清华大学
+
+蔡冠宇 清华大学
+
+董哲 清华大学
+
+刘怡豪 清华大学
+
 - 想看教学示例，可进入 `minimal_agents/examples/chapter-x/`
 - 想完成章节作业，可进入 `minimal_agents/hw/chapter-x/`
 - 想理解底层实现，可进入 `minimal_agents/src/minimal_agents/`
