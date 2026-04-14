@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  AndroidManifest.xml  —  App 的"身份证"
+  
+  这个文件声明了：
+  1. App 的基本信息（包名、版本等，在 build.gradle 中定义）
+  2. App 需要的系统权限（用户安装时需要同意）
+  3. App 包含的组件（Activity、Service 等）
+  
+  移动端 GUI 智能体需要申请的关键权限：
+  - INTERNET         : 调用云端大模型 API 需要联网
+  - BIND_ACCESSIBILITY_SERVICE : 无障碍服务的必须权限（读取屏幕、模拟操作）
+  
+  注意：BIND_ACCESSIBILITY_SERVICE 权限非常敏感，
+  Google Play 对此有严格审核，发布到应用商店前需要提供充分理由。
+-->
+<manifest
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.mobileagent">
+
+    <!-- 网络权限：调用云端 LLM API 时需要 -->
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <!-- 前台服务权限：如果需要在后台持续运行 Agent，需要此权限 -->
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.AppCompat.Light.DarkActionBar">
+
+        <!--
+          主界面 Activity
+          LAUNCHER 表示这是 App 的入口页面（显示在手机桌面上的那个图标）
+        -->
+        <activity
+            android:name=".MainActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <!--
+          无障碍服务声明
+          
+          重要配置说明：
+          - android:permission="android.permission.BIND_ACCESSIBILITY_SERVICE"
+            必须添加此权限声明，否则普通 App 可以绑定我们的服务，存在安全风险。
+          
+          - android:exported="false"
+            不允许其他 App 调用此服务。
+          
+          - meta-data 中的 android:resource="@xml/agent_accessibility_config"
+            指向我们的无障碍服务配置文件（声明监听哪些事件、需要哪些能力）。
+        -->
+        <service
+            android:name=".AgentAccessibilityService"
+            android:permission="android.permission.BIND_ACCESSIBILITY_SERVICE"
+            android:exported="false"
+            android:label="@string/app_name">
+            <intent-filter>
+                <action android:name="android.accessibilityservice.AccessibilityService" />
+            </intent-filter>
+            <meta-data
+                android:name="android.accessibilityservice"
+                android:resource="@xml/agent_accessibility_config" />
+        </service>
+
+    </application>
+</manifest>

@@ -1,0 +1,774 @@
+app:
+  description: 可以采用多查询扩展（MQE）和假设文档嵌入（HyDE）的扩展知识库检索框架。
+  icon: 🤖
+  icon_background: '#FFEAD5'
+  icon_type: emoji
+  mode: workflow
+  name: 高级知识检索
+  use_icon_as_answer_icon: false
+dependencies:
+- current_identifier: null
+  type: marketplace
+  value:
+    marketplace_plugin_unique_identifier: langgenius/zhipuai:0.0.23@7e6213a06c26b17b5dfc2416db36f664d4fb08252bd1644ca54a82a6cc7a8609
+    version: null
+kind: app
+version: 0.6.0
+workflow:
+  conversation_variables: []
+  environment_variables: []
+  features:
+    file_upload:
+      allowed_file_extensions:
+      - .JPG
+      - .JPEG
+      - .PNG
+      - .GIF
+      - .WEBP
+      - .SVG
+      allowed_file_types:
+      - image
+      allowed_file_upload_methods:
+      - local_file
+      - remote_url
+      enabled: false
+      fileUploadConfig:
+        attachment_image_file_size_limit: 2
+        audio_file_size_limit: 50
+        batch_count_limit: 5
+        file_size_limit: 15
+        file_upload_limit: 20
+        image_file_batch_limit: 10
+        image_file_size_limit: 10
+        single_chunk_attachment_limit: 10
+        video_file_size_limit: 100
+        workflow_file_upload_limit: 10
+      image:
+        enabled: false
+        number_limits: 3
+        transfer_methods:
+        - local_file
+        - remote_url
+      number_limits: 3
+    opening_statement: ''
+    retriever_resource:
+      enabled: true
+    sensitive_word_avoidance:
+      enabled: false
+    speech_to_text:
+      enabled: false
+    suggested_questions: []
+    suggested_questions_after_answer:
+      enabled: false
+    text_to_speech:
+      enabled: false
+      language: ''
+      voice: ''
+  graph:
+    edges:
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: start
+        targetType: if-else
+      id: 1775809821222-source-1775810250382-target
+      source: '1775809821222'
+      sourceHandle: source
+      target: '1775810250382'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: start
+        targetType: if-else
+      id: 1775809821222-source-1775810284237-target
+      source: '1775809821222'
+      sourceHandle: source
+      target: '1775810284237'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: start
+        targetType: tool
+      id: 1775809821222-source-1775810329532-target
+      source: '1775809821222'
+      sourceHandle: source
+      target: '1775810329532'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: if-else
+        targetType: llm
+      id: 1775810250382-true-1775810375331-target
+      source: '1775810250382'
+      sourceHandle: 'true'
+      target: '1775810375331'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: if-else
+        targetType: llm
+      id: 1775810284237-true-1775810521956-target
+      source: '1775810284237'
+      sourceHandle: 'true'
+      target: '1775810521956'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: llm
+        targetType: tool
+      id: 1775810375331-source-1775810831794-target
+      source: '1775810375331'
+      sourceHandle: source
+      target: '1775810831794'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: llm
+        targetType: tool
+      id: 1775810521956-source-1775810835881-target
+      source: '1775810521956'
+      sourceHandle: source
+      target: '1775810835881'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: tool
+        targetType: code
+      id: 1775810831794-source-1775810871000-target
+      source: '1775810831794'
+      sourceHandle: source
+      target: '1775810871000'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: tool
+        targetType: code
+      id: 1775810835881-source-1775810871000-target
+      source: '1775810835881'
+      sourceHandle: source
+      target: '1775810871000'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: tool
+        targetType: code
+      id: 1775810329532-source-1775810871000-target
+      source: '1775810329532'
+      sourceHandle: source
+      target: '1775810871000'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: code
+        targetType: end
+      id: 1775810871000-source-1775812313059-target
+      source: '1775810871000'
+      sourceHandle: source
+      target: '1775812313059'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    nodes:
+    - data:
+        selected: false
+        title: 用户输入
+        type: start
+        variables:
+        - default: ''
+          hint: ''
+          label: 查询内容
+          options: []
+          placeholder: ''
+          required: true
+          type: text-input
+          variable: query
+        - hint: ''
+          label: 指定的知识库
+          options:
+          - Agent
+          - AI
+          placeholder: ''
+          required: false
+          type: text-input
+          variable: KB
+        - default: '8'
+          hint: ''
+          label: 输出文档数量
+          options: []
+          placeholder: ''
+          required: false
+          type: number
+          variable: top_k
+        - default: ''
+          hint: ''
+          label: 使用多扩展查询（MQE）
+          options: []
+          placeholder: ''
+          required: false
+          type: checkbox
+          variable: use_mqe
+        - default: ''
+          hint: ''
+          label: 使用假设文档嵌入（HyDE）
+          options: []
+          placeholder: ''
+          required: false
+          type: checkbox
+          variable: use_hyde
+      height: 213
+      id: '1775809821222'
+      position:
+        x: 0
+        y: 159
+      positionAbsolute:
+        x: 0
+        y: 159
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+    - data:
+        cases:
+        - case_id: 'true'
+          conditions:
+          - comparison_operator: is
+            id: 5493422e-0ceb-494c-8c6f-8cd363660168
+            value: true
+            varType: boolean
+            variable_selector:
+            - '1775809821222'
+            - use_mqe
+          id: 'true'
+          logical_operator: and
+        selected: false
+        title: 判断是否使用MQE
+        type: if-else
+      height: 124
+      id: '1775810250382'
+      position:
+        x: 362
+        y: 0
+      positionAbsolute:
+        x: 362
+        y: 0
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+    - data:
+        cases:
+        - case_id: 'true'
+          conditions:
+          - comparison_operator: is
+            id: a5dcf2e2-05bd-450e-88ed-d1c291506c1e
+            value: true
+            varType: boolean
+            variable_selector:
+            - '1775809821222'
+            - use_hyde
+          id: 'true'
+          logical_operator: and
+        selected: false
+        title: 判断是否使用HyDE
+        type: if-else
+      height: 124
+      id: '1775810284237'
+      position:
+        x: 362
+        y: 204
+      positionAbsolute:
+        x: 362
+        y: 204
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+    - data:
+        is_team_authorization: true
+        paramSchemas:
+        - auto_generate: null
+          default: ''
+          form: llm
+          human_description:
+            en_US: 用户的查询
+            ja_JP: 用户的查询
+            pt_BR: 用户的查询
+            zh_Hans: 用户的查询
+          label:
+            en_US: 查询
+            ja_JP: 查询
+            pt_BR: 查询
+            zh_Hans: 查询
+          llm_description: 用户的查询
+          max: null
+          min: null
+          name: query
+          options: []
+          placeholder:
+            en_US: ''
+            ja_JP: ''
+            pt_BR: ''
+            zh_Hans: ''
+          precision: null
+          required: true
+          scope: null
+          template: null
+          type: string
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: 指定的知识库名称
+            ja_JP: 指定的知识库名称
+            pt_BR: 指定的知识库名称
+            zh_Hans: 指定的知识库名称
+          label:
+            en_US: 指定的知识库
+            ja_JP: 指定的知识库
+            pt_BR: 指定的知识库
+            zh_Hans: 指定的知识库
+          llm_description: 指定的知识库名称
+          max: null
+          min: null
+          name: KB
+          options: []
+          placeholder:
+            en_US: ''
+            ja_JP: ''
+            pt_BR: ''
+            zh_Hans: ''
+          precision: null
+          required: false
+          scope: null
+          template: null
+          type: string
+        params:
+          KB: ''
+          query: ''
+        plugin_id: null
+        plugin_unique_identifier: null
+        provider_icon:
+          background: '#FFEAD5'
+          content: 🤖
+        provider_id: 294610fd-8dba-437a-92eb-11c8be1c1408
+        provider_name: 知识库路由
+        provider_type: workflow
+        selected: false
+        title: 知识库路由
+        tool_configurations: {}
+        tool_description: 根据用户查询在（指定）知识库中进行选择。
+        tool_label: 知识库路由
+        tool_name: route_knowledge_base
+        tool_node_version: '2'
+        tool_parameters:
+          KB:
+            type: mixed
+            value: '{{#1775809821222.KB#}}'
+          query:
+            type: mixed
+            value: '{{#1775809821222.query#}}'
+        type: tool
+      height: 52
+      id: '1775810329532'
+      position:
+        x: 367.5339324044652
+        y: 438.5021028122126
+      positionAbsolute:
+        x: 367.5339324044652
+        y: 438.5021028122126
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+    - data:
+        context:
+          enabled: false
+          variable_selector: []
+        model:
+          completion_params:
+            temperature: 0.7
+            thinking: false
+          mode: chat
+          name: glm-4.7
+          provider: langgenius/zhipuai/zhipuai
+        prompt_template:
+        - id: 6d99fe29-cd4e-4d19-8838-f3f3eea7f129
+          role: system
+          text: '你是检索查询扩展助手。生成语义等价或互补的多样化查询。使用中文，简短，避免标点。
+
+            '
+        - id: e2c85ff7-1de1-40af-b1b5-7f382cf8ba4a
+          role: user
+          text: '原始查询：{{#1775809821222.query#}}
+
+            请给出3个不同表述的查询，每行一个。'
+        selected: false
+        title: LLM_MQE
+        type: llm
+        vision:
+          enabled: false
+      height: 88
+      id: '1775810375331'
+      position:
+        x: 704
+        y: 18
+      positionAbsolute:
+        x: 704
+        y: 18
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+    - data:
+        context:
+          enabled: false
+          variable_selector: []
+        model:
+          completion_params:
+            temperature: 0.7
+            thinking: false
+          mode: chat
+          name: glm-4.7
+          provider: langgenius/zhipuai/zhipuai
+        prompt_template:
+        - id: 74ef486c-703c-47e7-8b7e-f49f59420b89
+          role: system
+          text: 根据用户问题，先写一段可能的答案性段落，用于向量检索的查询文档。
+        - id: a3b333b3-1abc-4940-9893-93847dcc2167
+          role: user
+          text: '问题：{{#1775809821222.query#}}
+
+            请直接写一段较短长度、客观、包含关键术语的段落。'
+        selected: false
+        title: LLM_HyDE
+        type: llm
+        vision:
+          enabled: false
+      height: 88
+      id: '1775810521956'
+      position:
+        x: 704
+        y: 222
+      positionAbsolute:
+        x: 704
+        y: 222
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+    - data:
+        is_team_authorization: true
+        paramSchemas:
+        - auto_generate: null
+          default: ''
+          form: llm
+          human_description:
+            en_US: 用户的查询
+            ja_JP: 用户的查询
+            pt_BR: 用户的查询
+            zh_Hans: 用户的查询
+          label:
+            en_US: 查询
+            ja_JP: 查询
+            pt_BR: 查询
+            zh_Hans: 查询
+          llm_description: 用户的查询
+          max: null
+          min: null
+          name: query
+          options: []
+          placeholder:
+            en_US: ''
+            ja_JP: ''
+            pt_BR: ''
+            zh_Hans: ''
+          precision: null
+          required: true
+          scope: null
+          template: null
+          type: string
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: 指定的知识库名称
+            ja_JP: 指定的知识库名称
+            pt_BR: 指定的知识库名称
+            zh_Hans: 指定的知识库名称
+          label:
+            en_US: 指定的知识库
+            ja_JP: 指定的知识库
+            pt_BR: 指定的知识库
+            zh_Hans: 指定的知识库
+          llm_description: 指定的知识库名称
+          max: null
+          min: null
+          name: KB
+          options: []
+          placeholder:
+            en_US: ''
+            ja_JP: ''
+            pt_BR: ''
+            zh_Hans: ''
+          precision: null
+          required: false
+          scope: null
+          template: null
+          type: string
+        params:
+          KB: ''
+          query: ''
+        plugin_id: null
+        plugin_unique_identifier: null
+        provider_icon:
+          background: '#FFEAD5'
+          content: 🤖
+        provider_id: 294610fd-8dba-437a-92eb-11c8be1c1408
+        provider_name: 知识库路由
+        provider_type: workflow
+        selected: false
+        title: 知识库路由_MQE
+        tool_configurations: {}
+        tool_description: 根据用户查询在（指定）知识库中进行选择。
+        tool_label: 知识库路由
+        tool_name: route_knowledge_base
+        tool_node_version: '2'
+        tool_parameters:
+          KB:
+            type: mixed
+            value: '{{#1775809821222.KB#}}'
+          query:
+            type: mixed
+            value: '{{#1775810375331.text#}}'
+        type: tool
+      height: 52
+      id: '1775810831794'
+      position:
+        x: 1046
+        y: 36
+      positionAbsolute:
+        x: 1046
+        y: 36
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+    - data:
+        is_team_authorization: true
+        paramSchemas:
+        - auto_generate: null
+          default: ''
+          form: llm
+          human_description:
+            en_US: 用户的查询
+            ja_JP: 用户的查询
+            pt_BR: 用户的查询
+            zh_Hans: 用户的查询
+          label:
+            en_US: 查询
+            ja_JP: 查询
+            pt_BR: 查询
+            zh_Hans: 查询
+          llm_description: 用户的查询
+          max: null
+          min: null
+          name: query
+          options: []
+          placeholder:
+            en_US: ''
+            ja_JP: ''
+            pt_BR: ''
+            zh_Hans: ''
+          precision: null
+          required: true
+          scope: null
+          template: null
+          type: string
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: 指定的知识库名称
+            ja_JP: 指定的知识库名称
+            pt_BR: 指定的知识库名称
+            zh_Hans: 指定的知识库名称
+          label:
+            en_US: 指定的知识库
+            ja_JP: 指定的知识库
+            pt_BR: 指定的知识库
+            zh_Hans: 指定的知识库
+          llm_description: 指定的知识库名称
+          max: null
+          min: null
+          name: KB
+          options: []
+          placeholder:
+            en_US: ''
+            ja_JP: ''
+            pt_BR: ''
+            zh_Hans: ''
+          precision: null
+          required: false
+          scope: null
+          template: null
+          type: string
+        params:
+          KB: ''
+          query: ''
+        plugin_id: null
+        plugin_unique_identifier: null
+        provider_icon:
+          background: '#FFEAD5'
+          content: 🤖
+        provider_id: 294610fd-8dba-437a-92eb-11c8be1c1408
+        provider_name: 知识库路由
+        provider_type: workflow
+        selected: false
+        title: 知识库路由_HyDE
+        tool_configurations: {}
+        tool_description: 根据用户查询在（指定）知识库中进行选择。
+        tool_label: 知识库路由
+        tool_name: route_knowledge_base
+        tool_node_version: '2'
+        tool_parameters:
+          KB:
+            type: mixed
+            value: '{{#1775809821222.KB#}}'
+          query:
+            type: mixed
+            value: '{{#1775810521956.text#}}'
+        type: tool
+      height: 52
+      id: '1775810835881'
+      position:
+        x: 1046
+        y: 240
+      positionAbsolute:
+        x: 1046
+        y: 240
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+    - data:
+        code: "def main(output1: list[dict], output2: list[dict], output3: list[dict],\
+          \ top_k: float):\n    # 1. 提取文档列表的辅助函数\n    def extract_docs(output_list):\n\
+          \        if not output_list or not isinstance(output_list, list):\n    \
+          \        return []\n        # 根据输入结构，数据在列表的第一个元素的 \"documents\" 键下\n   \
+          \     return output_list[0].get(\"documents\", [])\n\n    docs1 = extract_docs(output1)\n\
+          \    docs2 = extract_docs(output2)\n    docs3 = extract_docs(output3)\n\n\
+          \    # 2. 合并所有文档\n    combined_documents = docs1 + docs2 + docs3\n\n   \
+          \ # 3. 使用字典去重 (以 segment_id 为 key)\n    # 提示：如果希望保留分值更高的重复项，建议先按 score 升序排，这样后存入的(分值高的)会覆盖旧的\n\
+          \    seen = {}\n    for item in combined_documents:\n        segment_id\
+          \ = item.get('metadata', {}).get('segment_id')\n        if segment_id:\n\
+          \            seen[segment_id] = item\n\n    unique_documents = list(seen.values())\n\
+          \n    # 4. 排序并取 Top K\n    # 将 top_k 转换为整数\n    k_limit = int(top_k)\n \
+          \   \n    # 按照 score 降序排序\n    top_n = sorted(\n        unique_documents,\
+          \ \n        key=lambda x: x.get('metadata', {}).get('score', 0), \n    \
+          \    reverse=True\n    )[:k_limit]\n    \n    # 5. 返回结果\n    return {\n\
+          \        \"documents\": top_n\n    }"
+        code_language: python3
+        outputs:
+          documents:
+            children: null
+            type: array[object]
+        selected: true
+        title: 代码执行
+        type: code
+        variables:
+        - value_selector:
+          - '1775810329532'
+          - json
+          value_type: array[object]
+          variable: output1
+        - value_selector:
+          - '1775810831794'
+          - json
+          value_type: array[object]
+          variable: output2
+        - value_selector:
+          - '1775810835881'
+          - json
+          value_type: array[object]
+          variable: output3
+        - value_selector:
+          - '1775809821222'
+          - top_k
+          value_type: number
+          variable: top_k
+      height: 52
+      id: '1775810871000'
+      position:
+        x: 1408
+        y: 240
+      positionAbsolute:
+        x: 1408
+        y: 240
+      selected: true
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+    - data:
+        outputs:
+        - value_selector:
+          - '1775810871000'
+          - documents
+          value_type: array[object]
+          variable: documents
+        selected: false
+        title: 输出
+        type: end
+      height: 88
+      id: '1775812313059'
+      position:
+        x: 1710
+        y: 240
+      positionAbsolute:
+        x: 1710
+        y: 240
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+    viewport:
+      x: -271.42401291475994
+      y: 191.88117624349098
+      zoom: 0.8040888484979247
+  rag_pipeline_variables: []

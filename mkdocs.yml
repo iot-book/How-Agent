@@ -1,0 +1,56 @@
+site_name: 智能体开发极简教程
+site_description: 面向教学与自学场景的智能体开发教程
+site_url: https://iot-book.github.io/How-Agent/
+repo_url: https://github.com/iot-book/How-Agent
+repo_name: iot-book/How-Agent
+
+theme:
+  name: material
+  language: zh
+  features:
+    - navigation.sections
+    - navigation.expand
+    - toc.integrate
+    - navigation.top
+    - search.suggest
+    - search.highlight
+    - content.code.copy
+
+markdown_extensions:
+  - admonition
+  - attr_list
+  - tables
+  - toc:
+      permalink: true
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.inlinehilite
+  - pymdownx.superfences
+  - pymdownx.tabbed:
+      alternate_style: true
+
+nav:
+  - 第一章 引言: index.md
+  - 基础部分:
+      - 第二章 提示词工程: chapters/02_提示词工程/02_提示词工程.md
+      - 第三章 Tools 与 Skills:
+          - Tools: chapters/03_Tools与Skills/03.1_Tools.md
+          - Skills: chapters/03_Tools与Skills/03.2_Skills.md
+      - 第四章 MCP 与外部能力接入: chapters/04_MCP与外部能力接入/04_MCP与外部能力接入.md
+      - 第五章 智能体: chapters/05_智能体/05_智能体_v2.md
+        #   - 智能体原稿: chapters/05_智能体/05_智能体.md
+      - 第六章 移动端智能体: chapters/06_移动端智能体/06_移动端智能体.md
+  - 进阶部分:
+      - 第七章 Gateway 开发与多通道通信: chapters/07_Gateway开发与多通道通信/07_Gateway开发与多通道通信.md
+      - 第八章 记忆与检索: chapters/08_记忆与检索/08_记忆与检索.md
+      - 第九章 低代码框架 Dify:
+          - 低代码框架 Dify: chapters/09_低代码框架Dify/09_低代码框架Dify.md
+          - Dify 附录: chapters/09_低代码框架Dify/09_低代码框架Dify_附录.md
+
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/iot-book/How-Agent
+
+extra_css:
+  - stylesheets/extra.css

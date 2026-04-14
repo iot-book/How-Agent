@@ -1,0 +1,407 @@
+app:
+  description: 根据用户查询在（指定）知识库中进行选择。
+  icon: 🤖
+  icon_background: '#FFEAD5'
+  icon_type: emoji
+  mode: workflow
+  name: 知识库路由
+  use_icon_as_answer_icon: false
+dependencies:
+- current_identifier: null
+  type: marketplace
+  value:
+    marketplace_plugin_unique_identifier: langgenius/zhipuai:0.0.23@7e6213a06c26b17b5dfc2416db36f664d4fb08252bd1644ca54a82a6cc7a8609
+    version: null
+kind: app
+version: 0.6.0
+workflow:
+  conversation_variables: []
+  environment_variables: []
+  features:
+    file_upload:
+      allowed_file_extensions:
+      - .JPG
+      - .JPEG
+      - .PNG
+      - .GIF
+      - .WEBP
+      - .SVG
+      allowed_file_types:
+      - image
+      allowed_file_upload_methods:
+      - local_file
+      - remote_url
+      enabled: false
+      fileUploadConfig:
+        attachment_image_file_size_limit: 2
+        audio_file_size_limit: 50
+        batch_count_limit: 5
+        file_size_limit: 15
+        file_upload_limit: 20
+        image_file_batch_limit: 10
+        image_file_size_limit: 10
+        single_chunk_attachment_limit: 10
+        video_file_size_limit: 100
+        workflow_file_upload_limit: 10
+      image:
+        enabled: false
+        number_limits: 3
+        transfer_methods:
+        - local_file
+        - remote_url
+      number_limits: 3
+    opening_statement: ''
+    retriever_resource:
+      enabled: true
+    sensitive_word_avoidance:
+      enabled: false
+    speech_to_text:
+      enabled: false
+    suggested_questions: []
+    suggested_questions_after_answer:
+      enabled: false
+    text_to_speech:
+      enabled: false
+      language: ''
+      voice: ''
+  graph:
+    edges:
+    - data:
+        isInLoop: false
+        sourceType: question-classifier
+        targetType: knowledge-retrieval
+      id: 1775650103099-1-1775649493813-target
+      selected: false
+      source: '1775650103099'
+      sourceHandle: '1'
+      target: '1775649493813'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: question-classifier
+        targetType: knowledge-retrieval
+      id: 1775650103099-2-1775649505497-target
+      selected: false
+      source: '1775650103099'
+      sourceHandle: '2'
+      target: '1775649505497'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: start
+        targetType: if-else
+      id: 1775649404603-source-1775650245869-target
+      source: '1775649404603'
+      sourceHandle: source
+      target: '1775650245869'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: if-else
+        targetType: knowledge-retrieval
+      id: 1775650245869-true-1775649493813-target
+      source: '1775650245869'
+      sourceHandle: 'true'
+      target: '1775649493813'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: if-else
+        targetType: knowledge-retrieval
+      id: 1775650245869-57f84850-7b69-46d7-8d19-6c5df612d1da-1775649505497-target
+      selected: false
+      source: '1775650245869'
+      sourceHandle: 57f84850-7b69-46d7-8d19-6c5df612d1da
+      target: '1775649505497'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: if-else
+        targetType: question-classifier
+      id: 1775650245869-false-1775650103099-target
+      source: '1775650245869'
+      sourceHandle: 'false'
+      target: '1775650103099'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: knowledge-retrieval
+        targetType: variable-aggregator
+      id: 1775649493813-source-1775650530793-target
+      source: '1775649493813'
+      sourceHandle: source
+      target: '1775650530793'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: knowledge-retrieval
+        targetType: variable-aggregator
+      id: 1775649505497-source-1775650530793-target
+      selected: false
+      source: '1775649505497'
+      sourceHandle: source
+      target: '1775650530793'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: variable-aggregator
+        targetType: end
+      id: 1775650530793-source-1775650583113-target
+      source: '1775650530793'
+      sourceHandle: source
+      target: '1775650583113'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    nodes:
+    - data:
+        selected: false
+        title: 用户输入
+        type: start
+        variables:
+        - default: ''
+          hint: ''
+          label: 查询
+          max_length: 256
+          options: []
+          placeholder: ''
+          required: true
+          type: text-input
+          variable: query
+        - hint: ''
+          label: 指定的知识库
+          options:
+          - AI
+          - Agent
+          placeholder: ''
+          required: false
+          type: text-input
+          variable: KB
+      height: 135
+      id: '1775649404603'
+      position:
+        x: 0
+        y: 18
+      positionAbsolute:
+        x: 0
+        y: 18
+      selected: true
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+    - data:
+        dataset_ids:
+        - P997XhHxzP8F2Yds8wbakvK2zJEwRiz08aAKCuxdeuSAf91/RWaknfz9XNnUUV9I
+        multiple_retrieval_config:
+          reranking_enable: false
+          reranking_mode: weighted_score
+          top_k: 4
+          weights:
+            keyword_setting:
+              keyword_weight: 0
+            vector_setting:
+              embedding_model_name: embedding-3
+              embedding_provider_name: langgenius/zhipuai/zhipuai
+              vector_weight: 1
+            weight_type: customized
+        query_attachment_selector: []
+        query_variable_selector:
+        - '1775649404603'
+        - query
+        retrieval_mode: multiple
+        selected: false
+        title: AI知识库检索
+        type: knowledge-retrieval
+      height: 90
+      id: '1775649493813'
+      position:
+        x: 1066
+        y: 62
+      positionAbsolute:
+        x: 1066
+        y: 62
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+    - data:
+        dataset_ids:
+        - It/i9LwUFlfIxfmsRLhXe7uczUSX+aUu3glmhh+6KUAWBhfwAatISG76Wg+sBTr2
+        multiple_retrieval_config:
+          reranking_enable: false
+          reranking_mode: weighted_score
+          top_k: 4
+          weights:
+            keyword_setting:
+              keyword_weight: 0
+            vector_setting:
+              embedding_model_name: embedding-3
+              embedding_provider_name: langgenius/zhipuai/zhipuai
+              vector_weight: 1
+            weight_type: customized
+        query_attachment_selector: []
+        query_variable_selector:
+        - '1775649404603'
+        - query
+        retrieval_mode: multiple
+        selected: false
+        title: Agent知识库检索
+        type: knowledge-retrieval
+      height: 90
+      id: '1775649505497'
+      position:
+        x: 1066
+        y: 232
+      positionAbsolute:
+        x: 1066
+        y: 232
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+    - data:
+        classes:
+        - id: '1'
+          name: AI
+        - id: '2'
+          name: Agent
+        instructions: ''
+        model:
+          completion_params:
+            temperature: 0.7
+          mode: chat
+          name: glm-4.5-flash
+          provider: langgenius/zhipuai/zhipuai
+        query_variable_selector:
+        - '1775649404603'
+        - query
+        selected: false
+        title: 问题分类器
+        type: question-classifier
+        vision:
+          enabled: false
+      height: 170
+      id: '1775650103099'
+      position:
+        x: 704
+        y: 174
+      positionAbsolute:
+        x: 704
+        y: 174
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+    - data:
+        cases:
+        - case_id: 'true'
+          conditions:
+          - comparison_operator: is
+            id: ddf115b3-e691-4874-b860-cd32c5bbe1a9
+            value: AI
+            varType: string
+            variable_selector:
+            - '1775649404603'
+            - KB
+          id: 'true'
+          logical_operator: and
+        - case_id: 57f84850-7b69-46d7-8d19-6c5df612d1da
+          conditions:
+          - comparison_operator: is
+            id: 2f2f78d7-ffa3-431d-83db-7d3ff74f35d3
+            value: Agent
+            varType: string
+            variable_selector:
+            - '1775649404603'
+            - KB
+          id: 57f84850-7b69-46d7-8d19-6c5df612d1da
+          logical_operator: and
+        selected: false
+        title: 条件分支
+        type: if-else
+      height: 172
+      id: '1775650245869'
+      position:
+        x: 342
+        y: 0
+      positionAbsolute:
+        x: 342
+        y: 0
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+    - data:
+        output_type: array[object]
+        selected: false
+        title: 变量聚合器
+        type: variable-aggregator
+        variables:
+        - - '1775649505497'
+          - result
+        - - '1775649493813'
+          - result
+      height: 134
+      id: '1775650530793'
+      position:
+        x: 1428
+        y: 62
+      positionAbsolute:
+        x: 1428
+        y: 62
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+    - data:
+        outputs:
+        - value_selector:
+          - '1775650530793'
+          - output
+          value_type: array[object]
+          variable: documents
+        selected: false
+        title: 输出
+        type: end
+      height: 88
+      id: '1775650583113'
+      position:
+        x: 1770
+        y: 85
+      positionAbsolute:
+        x: 1770
+        y: 85
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+    viewport:
+      x: 0
+      y: 0
+      zoom: 0.7
+  rag_pipeline_variables: []

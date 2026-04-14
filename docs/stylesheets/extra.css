@@ -1,0 +1,35 @@
+html {
+  font-size: 15px;
+}
+
+.md-typeset {
+  font-size: 0.78rem;
+  line-height: 1.75;
+}
+
+.md-typeset h1 {
+  font-size: 1.7rem;
+  margin-bottom: 1rem;
+}
+
+.md-typeset h2 {
+  font-size: 1.4rem;
+  margin-top: 2rem;
+}
+
+.md-typeset h3 {
+  font-size: 1.15rem;
+}
+
+.md-typeset h4 {
+  font-size: 1rem;
+}
+
+.md-nav {
+  font-size: 0.72rem;
+}
+
+.md-header__title,
+.md-ellipsis {
+  font-size: 0.78rem;
+}
