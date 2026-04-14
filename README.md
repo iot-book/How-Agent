@@ -43,11 +43,9 @@
 
 ## 在线阅读
 
-教程站点发布后，可直接通过以下地址访问：
+可直接通过以下地址访问我们提供的在线网站：
 
 - <https://iot-book.github.io/How-Agent/>
-
-如果页面刚完成首次部署，GitHub Pages 可能需要几分钟时间才会同步生效。
 
 ## 配套代码的使用方式
 
@@ -56,5 +54,3 @@
 - 想看教学示例，可进入 `minimal_agents/examples/chapter-x/`
 - 想完成章节作业，可进入 `minimal_agents/hw/chapter-x/`
 - 想理解底层实现，可进入 `minimal_agents/src/minimal_agents/`
-
-这种组织方式的目的是让文档与代码一一对应，方便读者在“阅读说明”和“查看实现”之间来回切换。
