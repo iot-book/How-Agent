@@ -181,7 +181,7 @@ pip install mcp
 - `get_weather(city)`：查询某个城市的天气；
 - `list_supported_cities()`：列出目前支持查询的城市。
 
-为了让示例结构更清楚，真正的天气逻辑放在 `minimal_agents/examples/chapter-4/mcp/teaching_weather_tools.py` 中，MCP Server 只负责“把这些函数注册成工具并对外暴露”。也就是说，这个文件的重点是：**“怎么把已有函数包装成 MCP 工具。”**
+为了让示例结构更清楚，真正的天气逻辑放在 `minimal_agents/examples/chapter-4/mcp/teaching_weather_tools.py` 中，MCP Server 只负责把这些函数注册成工具并对外暴露。这个文件的重点是：**如何把已有函数包装成 MCP 工具。**
 
 ### 3. 示例代码
 
@@ -258,7 +258,7 @@ mcp.run(transport="stdio")
 
 ### 5. 如何运行它
 
-这一节的完整代码可查看：
+本节配套示例位于：
 
 `minimal_agents/examples/chapter-4/mcp/teaching_weather_tools.py`
 
