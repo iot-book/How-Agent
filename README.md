@@ -1,26 +1,60 @@
 # 智能体开发极简教程
 
-本仓库包含两部分内容：
+本教程面向希望系统学习智能体开发的读者，内容从基础概念逐步推进到最小实现与工程实践，适合作为自学材料、课程参考资料或教学配套讲义使用。
 
-- `docs/`：用于 MkDocs 构建与 GitHub Pages 发布的教程文档站；
-- `minimal_agents/`：用于存放真实可运行的教学示例、作业模板与最小智能体实现。
+整套内容围绕智能体开发中的几个核心主题展开，包括：
+
+- 智能体的基本概念与整体结构；
+- Prompt 与 Prompt Engineering；
+- Tools、Skills 与 MCP 的使用方式；
+- Agent 的最小实现与组合方式；
+- Gateway、记忆、检索与低代码平台等进阶主题。
+
+## 适合哪些读者
+
+- 希望从零开始理解智能体开发流程的初学者；
+- 已经听过相关概念，但希望进一步理解底层结构与代码实现的读者；
+- 希望将智能体内容用于课程、培训或项目实践的教师与开发者；
+- 想边阅读边动手，通过配套代码和作业逐步上手的学习者。
+
+## 如何阅读本教程
+
+如果希望在线阅读，建议直接访问 GitHub Pages 部署后的教程站点。站点中已经按“基础部分”和“进阶部分”组织好阅读顺序，适合顺序学习，也适合按主题跳读。
+
+教程网页地址：
+
+- <https://iot-book.github.io/How-Agent/>
+
+如果希望从头开始阅读，建议先从引言进入，再依次学习 Prompt、Tools、Skills、MCP、Agent 与 Gateway 等章节。
+
+## 仓库内容说明
+
+本仓库主要包含两部分内容：
+
+- `docs/`：教程正文、章节图片以及 MkDocs 站点配置所需的文档内容；
+- `minimal_agents/`：教程配套的教学示例、作业模板与最小实现代码。
+
+其中：
+
+- `minimal_agents/examples/` 对应各章节中的教学案例；
+- `minimal_agents/hw/` 对应各章节中的作业练习；
+- `minimal_agents/src/` 提供教程中使用到的最小智能体实现；
+- `minimal_agents/tests/` 提供部分自动化测试示例。
 
 ## 在线阅读
 
-教程网页入口位于 `docs/`，发布后可通过 GitHub Pages 访问。
+教程站点发布后，可直接通过以下地址访问：
 
-## 本地预览文档站
+- <https://iot-book.github.io/How-Agent/>
 
-```bash
-pip install mkdocs mkdocs-material pymdown-extensions
-mkdocs serve
-```
+如果页面刚完成首次部署，GitHub Pages 可能需要几分钟时间才会同步生效。
 
-## 运行配套代码
+## 配套代码的使用方式
 
-如果要运行配套代码，建议进入本仓库中的 `minimal_agents/` 目录查看：
+本教程中的很多章节都配有可运行示例与作业模板。阅读时可以结合 `minimal_agents/` 中的目录一起查看：
 
-- `examples/`
-- `hw/`
-- `src/`
-- `tests/`
+- 想看教学示例，可进入 `minimal_agents/examples/chapter-x/`
+- 想完成章节作业，可进入 `minimal_agents/hw/chapter-x/`
+- 想理解底层实现，可进入 `minimal_agents/src/minimal_agents/`
+
+这种组织方式的目的是让文档与代码一一对应，方便读者在“阅读说明”和“查看实现”之间来回切换。
