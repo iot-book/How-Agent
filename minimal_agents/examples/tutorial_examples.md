@@ -26,6 +26,9 @@
 - 第五章 Agent 综合能力：`chapter-5/agent/teaching_full_capabilities_demo.py`
   说明如何把本地 Tool、MCP Tool 和 Skill 组合进同一个 `MinimalAgent`。
   配套 Skill 目录：`chapter-5/agent/skills_demo/`
+- 第五章 LangGraph：`chapter-5/langgraph/teaching_langgraph_demo.py`
+  说明如何用 `StateGraph` 把“路由、读取文件、整理摘要、输出答案”组织成一张可执行的图。
+  配套文件：`chapter-5/langgraph/sample_student_task.md`
 - 第六章 移动端智能体：`chapter-6/mobile/`
   提供一个 Android 端最小移动智能体示例，展示 PDA 循环在移动端场景中的基本实现方式。
   配套说明文件：`chapter-6/mobile/README.md`

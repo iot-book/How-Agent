@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+
+{% block extrahead %}
+  {{ super() }}
+  <!-- Default Statcounter code for How-Agent https://iot-book.github.io/How-Agent/ -->
+  <script type="text/javascript">
+    var sc_project = 13222242;
+    var sc_invisible = 1;
+    var sc_security = "58f0dacb";
+  </script>
+  <script
+    type="text/javascript"
+    src="https://www.statcounter.com/counter/counter.js"
+    async
+  ></script>
+  <!-- End of Statcounter Code -->
+{% endblock %}
+
+{% block scripts %}
+  {{ super() }}
+  <noscript>
+    <div class="statcounter">
+      <a title="web stats" href="https://statcounter.com/" target="_blank" rel="noopener noreferrer">
+        <img
+          class="statcounter"
+          src="https://c.statcounter.com/13222242/0/58f0dacb/1/"
+          alt="web stats"
+          referrerpolicy="no-referrer-when-downgrade"
+        />
+      </a>
+    </div>
+  </noscript>
+{% endblock %}

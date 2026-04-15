@@ -31,6 +31,7 @@ python examples/chapter-5/agent/teaching_minimal_demo.py
 python examples/chapter-5/agent/teaching_react_demo.py
 python examples/chapter-5/agent/teaching_plan_execute_demo.py
 python examples/chapter-5/agent/teaching_full_capabilities_demo.py
+python examples/chapter-5/langgraph/teaching_langgraph_demo.py
 python examples/chapter-7/gateway/teaching_gateway_demo.py
 ```
 

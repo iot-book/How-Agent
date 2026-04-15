@@ -18,6 +18,9 @@ test = [
 mcp = [
     "mcp",
 ]
+langgraph = [
+    "langgraph",
+]
 
 [tool.setuptools]
 package-dir = {"" = "src"}

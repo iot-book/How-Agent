@@ -7,6 +7,7 @@ repo_name: iot-book/How-Agent
 theme:
   name: material
   language: zh
+  custom_dir: docs/overrides
   features:
     - navigation.sections
     - navigation.expand
@@ -37,7 +38,8 @@ nav:
           - Tools: chapters/03_Tools与Skills/03.1_Tools.md
           - Skills: chapters/03_Tools与Skills/03.2_Skills.md
       - 第四章 MCP 与外部能力接入: chapters/04_MCP与外部能力接入/04_MCP与外部能力接入.md
-      - 第五章 智能体: chapters/05_智能体/05_智能体_v2.md
+      - 第五章 智能体:
+          - 智能体基础: chapters/05_智能体/05_智能体_v2.md
         #   - 智能体原稿: chapters/05_智能体/05_智能体.md
       - 第六章 移动端智能体: chapters/06_移动端智能体/06_移动端智能体.md
   - 进阶部分:

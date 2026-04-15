@@ -11,5 +11,8 @@ openai
 # MCP examples
 mcp
 
+# LangGraph examples
+langgraph
+
 # Testing
 pytest>=8.0,<10.0
