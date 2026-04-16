@@ -1,3 +1,14 @@
 .md-typeset {
   line-height: 1.75;
 }
+
+.footer-owner-link {
+  color: inherit;
+  display: inline-block;
+  text-decoration: none;
+}
+
+.footer-owner-link:hover,
+.footer-owner-link:focus {
+  text-decoration: underline;
+}
