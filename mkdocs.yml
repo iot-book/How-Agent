@@ -3,7 +3,7 @@ site_description: 面向教学与自学场景的智能体开发教程
 site_url: https://iot-book.github.io/How-Agent/
 repo_url: https://github.com/iot-book/How-Agent
 repo_name: iot-book/How-Agent
-copyright: © 清华大学 - 王继良 - jiliangwang@tsinghua.edu.cn
+copyright: '© 清华大学 - <a href="https://tns.thss.tsinghua.edu.cn/~jiliang/" target="_blank" rel="noopener noreferrer">王继良</a> - jiliangwang@tsinghua.edu.cn'
 
 theme:
   name: material
