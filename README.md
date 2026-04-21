@@ -23,7 +23,7 @@
 
 教程网页地址：
 
-- <https://iot-book.github.io/How-Agent/>
+- [智能体原理与实现教程网站](https://iot-book.github.io/How-Agent/)
 
 如果希望从头开始阅读，建议先从引言进入，再依次学习 Prompt、Tools、Skills、MCP、Agent 与 Gateway 等章节。
 
@@ -45,7 +45,7 @@
 
 可直接通过以下地址访问我们提供的在线网站：
 
-- <https://iot-book.github.io/How-Agent/>
+- [智能体原理与实现教程网站](https://iot-book.github.io/How-Agent/)
 
 ## 配套代码的使用方式
 
