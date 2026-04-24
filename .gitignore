@@ -21,3 +21,4 @@ build/
 *.bak
 .DS_Store
 Thumbs.db
+*.docx

@@ -9,6 +9,8 @@ theme:
   name: material
   language: zh
   custom_dir: docs/overrides
+  logo: chapters/images/how-agent-icon.png
+  favicon: chapters/images/how-agent-icon.ico
   features:
     - navigation.sections
     - navigation.expand
